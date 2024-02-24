@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 use Session;
 use App\Models\User;
 use Hash;
@@ -35,7 +36,8 @@ class AuthController extends Controller
     // signup section
     public function signup()
     {
-        return view('pages.auth.signup');
+        $roles = Role::where('name', '<>', 'admin')->get();
+        return view('pages.auth.signup', ['roles'=>$roles]);
     }
 
     public function postSignup(Request $request)
@@ -44,7 +46,8 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,',
             'password' => 'required|confirmed',
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required',
+            'role' => 'required'
         ]);
 
         $data = $request->all();
@@ -61,6 +64,7 @@ class AuthController extends Controller
             $check = $this->create($data);
 
             if ($check) {
+                $check->assignRole($request->role);
                 return redirect("login")->with('success', 'Great! Sign up completed, now you can login.');
             }
         } catch (\Exception $e) {

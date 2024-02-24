@@ -4,29 +4,29 @@
     <div class="hold-transition login-page">
         <div class="login-box">
             <!-- /.login-logo -->
-            <div class="card card-outline card-primary">
+            <div class="card card-primary">
                 <div class="card-header text-center">
-                    <a href="../../index2.html" class="h1"><b>Login</b></a>
+                    <a class="h1" href="../../index2.html"><b>Login</b></a>
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">Sign in to start your session</p>
 
-                    <x-alert class="p-3 mb-4" />
+                    <x-alert class="mb-4 p-3" />
 
                     <form action="{{ route('post.login') }}" method="post">
                         @csrf
 
-                        <div class="form-group  mb-3">
+                        <div class="form-group mb-3">
                             <div class="input-group">
-                                <x-input-text name="email" type="email" placeholder="Email"
-                                    value="{{ old('email') }}" />
+                                <x-input-text name="email" type="email" value="{{ old('email') }}"
+                                    placeholder="Email" />
                                 <x-input-icon class="fas fa-envelope" />
                             </div>
                             <!-- Error Message -->
                             <x-input-error :messages="$errors->first('email')" />
                         </div>
 
-                        <div class="form-group  mb-3">
+                        <div class="form-group mb-3">
                             <div class="input-group">
                                 <x-input-text name="password" type="password" placeholder="Password" />
                                 <x-input-icon class="fas fa-lock" />
@@ -61,13 +61,15 @@
                         </a>
                     </div> --}}
                     <!-- /.social-auth-links -->
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <p class="mb-1 mt-2">
+                            <a href="{{ route('get.forgot.password') }}">Forgot password</a>
+                        </p>
+                        <p class="mb-0">
+                            <a class="text-center" href="{{ route('get.signup') }}">New account</a>
+                        </p>
+                    </div>
 
-                    <p class="mb-1 mt-2">
-                        <a href="{{ route('get.forgot.password') }}">I forgot my password</a>
-                    </p>
-                    <p class="mb-0">
-                        <a href="{{ route('get.signup') }}" class="text-center">Register a new membership</a>
-                    </p>
                 </div>
                 <!-- /.card-body -->
             </div>
