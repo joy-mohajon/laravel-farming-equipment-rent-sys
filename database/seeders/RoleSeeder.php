@@ -21,17 +21,17 @@ class RoleSeeder extends Seeder
 
         $borrower = Role::create(['name' => 'borrower', 'guard_name' => 'web']);
         $borrowerPermissions = [
-            'post_list',
-            'post_create',
-            'post_update',
-            'post_delete'
+            'rent_equipment',
         ];
         $borrowerPermissionObjects = Permission::whereIn('name', $borrowerPermissions)->get();
         $borrower->syncPermissions($borrowerPermissionObjects);
 
         $lender = Role::create(['name' => 'lender', 'guard_name' => 'web']);
         $lenderPermissions = [
-            'rent_equipment',
+            'post_list',
+            'post_create',
+            'post_update',
+            'post_delete'
         ];
         $lenderPermissionObjects = Permission::whereIn('name', $lenderPermissions)->get();
         $lender->syncPermissions($lenderPermissionObjects);

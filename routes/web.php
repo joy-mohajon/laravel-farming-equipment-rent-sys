@@ -5,8 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 // use App\Http\Controllers\RoleController;
-use App\Models\User;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::redirect('/', '/dashboard');
 
     Route::get('/dashboard', function () {
-        $users = User::count();
-        return view('dashboard', ['users'=>$users]);
+        $posts = Post::latest()->get();
+        return view('dashboard', ['posts'=>$posts]);
     })->name('dashboard');
 
     Route::controller(ProfileController::class)->group(function (){
@@ -54,5 +55,5 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::resource('users', UserController::class)->except(['show']);
-    // Route::resource('roles', RoleController::class)->except(['show']);
+    Route::resource('posts', PostController::class)->except(['show']);
 });

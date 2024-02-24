@@ -26,75 +26,115 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>150</h3>
+                    @forelse ($posts as $post)
+                        <div class="col-md-3">
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-info"
+                                    style="background-image: url('{{ $post->imageUrl }}'); background-size: cover; width: 100%; height: 170px;">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="widget-user-username font-weight-normal mb-3 text-center">{{ $post->name }}
+                                    </h3>
+                                    <div class="row">
+                                        <div class="col-sm-6 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">{{ $post->quantity }}</h5>
+                                                <span class="description-text">Available</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-6">
+                                            <div class="description-block">
+                                                <h5 class="description-header"><span
+                                                        class="font-weight-bolder">৳</span>{{ $post->price }}/hr</h5>
+                                                <span class="description-text">Price</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                    <x-primary-button class="w-50 mx-auto mt-3" type="submit">
+                                        Rent
+                                    </x-primary-button>
+                                </div>
 
-                                <p>New Orders</p>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a class="small-box-footer" href="#">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    @empty
+                        <div class="col-md-3">
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-info">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="widget-user-username font-weight-normal mb-3 text-center">Garden Tractor
+                                    </h3>
+                                    <div class="row">
+                                        <div class="col-sm-6 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">2</h5>
+                                                <span class="description-text">Available</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-6">
+                                            <div class="description-block">
+                                                <h5 class="description-header"><span
+                                                        class="font-weight-bolder">৳</span>12000/hr</h5>
+                                                <span class="description-text">Price</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                    <x-primary-button class="w-50 mx-auto mt-3" type="submit">
+                                        Rent
+                                    </x-primary-button>
+                                </div>
 
-                                <p>Bounce Rate</p>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
-                            </div>
-                            <a class="small-box-footer" href="#">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                            <div class="inner">
-                                <h3>{{ $users }}</h3>
+                        <div class="col-md-3">
+                            <div class="card card-widget widget-user">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-info">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h3 class="widget-user-username font-weight-normal mb-3 text-center">Dumb Truck
+                                    </h3>
+                                    <div class="row">
+                                        <div class="col-sm-6 border-right">
+                                            <div class="description-block">
+                                                <h5 class="description-header">5</h5>
+                                                <span class="description-text">Available</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-6">
+                                            <div class="description-block">
+                                                <h5 class="description-header"><span
+                                                        class="font-weight-bolder">৳</span>16000/hr</h5>
+                                                <span class="description-text">Price</span>
+                                            </div>
+                                            <!-- /.description-block -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                    <x-primary-button class="w-50 mx-auto mt-3" type="submit">
+                                        Rent
+                                    </x-primary-button>
+                                </div>
 
-                                <p>User Registrations</p>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            <a class="small-box-footer" href="#">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-danger">
-                            <div class="inner">
-                                <h3>65</h3>
-
-                                <p>Unique Visitors</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                            </div>
-                            <a class="small-box-footer" href="#">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
+                    @endforelse
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 @endsection
