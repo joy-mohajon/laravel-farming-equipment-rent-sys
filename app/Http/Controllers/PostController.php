@@ -118,8 +118,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        // session()->flash('success', 'Rule Successfully Deleted');
+        return response()->flash('success', 'Post has been deleted.');
     }
 }

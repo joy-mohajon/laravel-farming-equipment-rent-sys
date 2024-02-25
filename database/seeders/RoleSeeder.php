@@ -21,7 +21,7 @@ class RoleSeeder extends Seeder
 
         $borrower = Role::create(['name' => 'borrower', 'guard_name' => 'web']);
         $borrowerPermissions = [
-            'rent_equipment',
+            'rent_list',
         ];
         $borrowerPermissionObjects = Permission::whereIn('name', $borrowerPermissions)->get();
         $borrower->syncPermissions($borrowerPermissionObjects);

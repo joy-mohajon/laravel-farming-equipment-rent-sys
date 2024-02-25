@@ -38,17 +38,7 @@
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item has-treeview">
-                    @can('file_list')
-                        <a class="nav-link active" href="{{ route('files.index') }}">
-                            <i class="nav-icon fa-regular fa-file-lines"></i>
-                            <p>
-                                File
-                                <i class="right"></i>
-                            </p>
-                        </a>
-                    @endcan
-                </li> --}}
+
                 <li class="nav-item has-treeview">
                     @can('post_list')
                         <a class="nav-link" href="#">
@@ -59,7 +49,6 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('posts.index') }}">
                                     <i class="nav-icon fas fa-angle-double-right"></i>
@@ -68,6 +57,15 @@
                             </li>
                         </ul>
                     @endcan
+                </li>
+                <li class="nav-item has-treeview">
+                    <a class="nav-link active" href="{{ route('rents.index') }}">
+                        <i class="nav-icon fa-regular fa-file-lines"></i>
+                        <p>
+                            Pending confirmation
+                            <i class="right"></i>
+                        </p>
+                    </a>
                 </li>
                 <li class="nav-item has-treeview">
                     @if (Auth::user()->hasRole('admin'))

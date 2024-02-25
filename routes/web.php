@@ -6,7 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
-// use App\Http\Controllers\RoleController;
+use App\Http\Controllers\RentController;
+use App\Http\Controllers\StripePaymentController;
 use App\Models\Post;
 
 /*
@@ -56,4 +57,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('users', UserController::class)->except(['show']);
     Route::resource('posts', PostController::class)->except(['show']);
+    Route::controller(StripePaymentController::class)->group(function(){
+        Route::get('stripe/{id}', 'stripe')->name('stripe');
+        Route::post('stripe/{id}', 'stripePost')->name('stripe.post');
+    });
+    Route::resource('rents', RentController::class)->except(['show']);
 });

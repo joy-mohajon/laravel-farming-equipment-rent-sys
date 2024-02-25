@@ -35,7 +35,7 @@ class PermissionSeeder extends Seeder
                 ['name' => 'post_delete',       'guard_name' => 'web'],
 
                  // permissions for reserve operation
-                 ['name' => 'rent_equipment',         'guard_name' => 'web'],
+                 ['name' => 'rent_list',         'guard_name' => 'web'],
                 //  ['name' => 'post_create',       'guard_name' => 'web'],
                 //  ['name' => 'post_update',       'guard_name' => 'web'],
                 //  ['name' => 'post_delete',       'guard_name' => 'web'],

@@ -37,7 +37,7 @@
                                     <h3 class="widget-user-username font-weight-normal mb-3 text-center">{{ $post->name }}
                                     </h3>
                                     <div class="row">
-                                        <div class="col-sm-6 border-right">
+                                        <div class="col-sm-5 border-right">
                                             <div class="description-block">
                                                 <h5 class="description-header">{{ $post->quantity }}</h5>
                                                 <span class="description-text">Available</span>
@@ -45,7 +45,7 @@
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-7">
                                             <div class="description-block">
                                                 <h5 class="description-header"><span
                                                         class="font-weight-bolder">৳</span>{{ $post->price }}/hr</h5>
@@ -55,11 +55,14 @@
                                         </div>
                                     </div>
                                     <!-- /.row -->
-                                    <x-primary-button class="w-50 mx-auto mt-3" type="submit">
-                                        Rent
-                                    </x-primary-button>
+                                    @can('rent_list')
+                                        <a href="{{ route('stripe', ['id' => $post->id]) }}">
+                                            <x-primary-button class="w-50 mx-auto mt-3" type="submit">
+                                                Rent
+                                            </x-primary-button>
+                                        </a>
+                                    @endcan
                                 </div>
-
                             </div>
                         </div>
                     @empty
