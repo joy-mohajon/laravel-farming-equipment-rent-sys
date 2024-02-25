@@ -27,17 +27,17 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     @forelse ($posts as $post)
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="card card-widget widget-user">
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
                                 <div class="widget-user-header bg-info"
-                                    style="background-image: url('{{ $post->imageUrl }}'); background-size: cover; width: 100%; height: 170px;">
+                                    style="background-image: url('{{ $post->imageUrl }}'); background-size: cover; width: 100%; height: 200px;">
                                 </div>
                                 <div class="card-body d-flex flex-column">
-                                    <h3 class="widget-user-username font-weight-normal mb-3 text-center">{{ $post->name }}
+                                    <h3 class="widget-user-username font-weight-normal mb-2 text-center">{{ $post->name }}
                                     </h3>
                                     <div class="row">
-                                        <div class="col-sm-5 border-right">
+                                        <div class="col-sm-6 border-right">
                                             <div class="description-block">
                                                 <h5 class="description-header">{{ $post->quantity }}</h5>
                                                 <span class="description-text">Available</span>
@@ -45,7 +45,7 @@
                                             <!-- /.description-block -->
                                         </div>
                                         <!-- /.col -->
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-6">
                                             <div class="description-block">
                                                 <h5 class="description-header"><span
                                                         class="font-weight-bolder">৳</span>{{ $post->price }}/hr</h5>
@@ -62,6 +62,10 @@
                                             </x-primary-button>
                                         </a>
                                     @endcan
+                                    <div class="row justify-content-between mt-1">
+                                        <button class="btn">Buy</button>
+                                        <button class="btn">Sell</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
