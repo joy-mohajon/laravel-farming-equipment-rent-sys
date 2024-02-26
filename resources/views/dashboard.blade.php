@@ -70,7 +70,8 @@
                                             </a>
                                         @else
                                             <div class="d-flex justify-content-between mt-3">
-                                                <div class="border-danger w-100 border p-2 text-center text-danger">Unavailable at the moment.</div>
+                                                <div class="border-danger w-100 text-danger border p-2 text-center">Unavailable
+                                                    at that moment.</div>
                                             </div>
                                         @endif
                                     @endcan
