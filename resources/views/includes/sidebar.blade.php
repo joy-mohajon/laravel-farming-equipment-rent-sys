@@ -62,7 +62,7 @@
                     <a class="nav-link active" href="{{ route('rents.index') }}">
                         <i class="nav-icon fa-regular fa-file-lines"></i>
                         <p>
-                            Pending confirmation
+                            Confirmations
                             <i class="right"></i>
                         </p>
                     </a>

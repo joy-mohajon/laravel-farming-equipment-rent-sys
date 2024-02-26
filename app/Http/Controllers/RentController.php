@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rent;
+use Illuminate\Support\Facades\Auth;
 
 class RentController extends Controller
 {
@@ -12,7 +13,7 @@ class RentController extends Controller
      */
     public function index(Request $request)
     {
-        $rents = Rent::orderBy('id', 'DESC')->paginate(10);
+        $rents = Rent::where('user_id', Auth::id())->orderBy('id', 'DESC')->paginate(10);
 
         return view('pages.rent.index', compact('rents'))
         ->with('i', ($request->input('page', 1) - 1) * 10);
