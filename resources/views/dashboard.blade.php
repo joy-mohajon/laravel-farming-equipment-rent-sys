@@ -101,7 +101,7 @@
                                     <div class="d-flex justify-content-between mt-3">
                                         <a class="btn w-100 border-primary border" href="{{ route('buy') }}">Buy</a>
                                     </div>
-                                    <x-primary-button class="w-50 mx-auto mt-3" type="submit">
+                                    <x-primary-button class="w-100 mx-auto mt-3" type="submit">
                                         Rent
                                     </x-primary-button>
                                 </div>
@@ -137,7 +137,7 @@
                                     <div class="d-flex justify-content-between mt-3">
                                         <a class="btn w-100 border-primary border" href="{{ route('buy') }}">Buy</a>
                                     </div>
-                                    <x-primary-button class="w-50 mx-auto mt-3" type="submit">
+                                    <x-primary-button class="w-100 mx-auto mt-3" type="submit">
                                         Rent
                                     </x-primary-button>
                                 </div>
