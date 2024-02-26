@@ -59,13 +59,27 @@
                     @endcan
                 </li>
                 <li class="nav-item has-treeview">
-                    <a class="nav-link active" href="{{ route('rents.index') }}">
+                    <a class="nav-link" href="#">
                         <i class="nav-icon fa-regular fa-file-lines"></i>
                         <p>
                             Confirmations
-                            <i class="right"></i>
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('buys.index') }}">
+                                <i class="nav-icon fas fa-angle-double-right"></i>
+                                <p>Buys</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('rents.index') }}">
+                                <i class="nav-icon fas fa-angle-double-right"></i>
+                                <p>Rents</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item has-treeview">
                     @if (Auth::user()->hasRole('admin'))

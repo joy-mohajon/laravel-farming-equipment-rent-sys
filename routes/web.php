@@ -7,6 +7,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RentController;
+use App\Http\Controllers\BuyController;
 use App\Http\Controllers\StripePaymentController;
 use App\Models\Post;
 
@@ -73,10 +74,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class)->except(['show']);
     Route::resource('posts', PostController::class)->except(['show']);
     Route::controller(StripePaymentController::class)->group(function(){
-        Route::get('stripe/{id}', 'stripe')->name('stripe');
-        Route::post('stripe/{id}', 'stripePost')->name('stripe.post');
+        Route::get('stripe/{id}/rent', 'stripeRent')->name('stripe.rent');
+        Route::post('stripe/{id}/rent', 'stripeRentPost')->name('stripe.rent.post');
+        Route::get('stripe/buy', 'stripeBuy')->name('stripe.buy');
+        Route::post('stripe/{id}/buy', 'stripeBuyPost')->name('stripe.buy.post');
     });
     Route::resource('rents', RentController::class)->except(['show']);
+    Route::resource('buys', BuyController::class)->except(['show']);
 });
 
 

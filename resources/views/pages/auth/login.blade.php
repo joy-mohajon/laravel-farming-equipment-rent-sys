@@ -16,15 +16,15 @@
                 <img src="{{ asset('template/img/logo.png') }}" title="AgroErent" alt="AgroErent">
             </div>
 
-            {{-- @if ($errors->any())
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <li style="color: red">{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
-            @endif --}}
+            @endif
 
             <p id="sub-heading-1">Login</p>
             <p id="sub-heading-2">Log to your account</p>

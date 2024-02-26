@@ -57,14 +57,22 @@
                                     <!-- /.row -->
 
                                     @can('rent_list')
-                                        <div class="d-flex justify-content-between mt-3">
-                                            <a class="btn w-100 border-primary border" href="{{ route('buy') }}">Buy</a>
-                                        </div>
-                                        <a href="{{ route('stripe', ['id' => $post->id]) }}">
-                                            <x-primary-button class="w-100 mx-auto mt-2" type="submit">
-                                                Rent
-                                            </x-primary-button>
-                                        </a>
+                                        @if ($post->quantity > 0)
+                                            <div class="d-flex justify-content-between mt-3">
+                                                <a class="btn w-100 border-primary border"
+                                                    href="{{ route('stripe.buy', ['data' => json_encode($post)]) }}"
+                                                    disabled>Buy</a>
+                                            </div>
+                                            <a href="{{ route('stripe.rent', ['id' => $post->id]) }}">
+                                                <x-primary-button class="w-100 mx-auto mt-2" type="submit">
+                                                    Rent
+                                                </x-primary-button>
+                                            </a>
+                                        @else
+                                            <div class="d-flex justify-content-between mt-3">
+                                                <div class="border-danger w-100 border p-2 text-center text-danger">Unavailable at the moment.</div>
+                                            </div>
+                                        @endif
                                     @endcan
 
                                 </div>

@@ -34,13 +34,26 @@
                 <div class="col-12">
                     <div class="card shadow">
                         <div class="card-header">
-                            <h3 class="card-title">Payment for this equipment</h3>
+                            <h3 class="card-title">Payment for buy this equipment</h3>
                         </div>
                         <div class="card-body">
                             <form class="require-validation" id="payment-form" data-cc-on-file="false"
                                 data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" role="form"
-                                action="{{ route('stripe.post', ['id' => $id]) }}" method="post">
+                                action="{{ route('stripe.buy.post', ['id' => $post['id']]) }}" method="post">
                                 @csrf
+
+                                {{-- <div class='form-row row'>
+                                    <div class='col-md-6 form-group required'>
+                                        <label class='control-label'>Name of equipment</label> <input class='form-control'
+                                            name="equipment_name" type='text' value="{{ $post['name'] }}" disabled
+                                            size='4'>
+                                    </div>
+                                    <div class='col-md-6 form-group required'>
+                                        <label class='control-label'>Number of equipment</label> <input
+                                            class='form-control card-number' name="equipment_quantity" type='number'
+                                            autocomplete='off' max="{{ $post['quantity'] }}">
+                                    </div>
+                                </div> --}}
 
                                 <div class='form-row row'>
                                     <div class='col-md-6 form-group required'>
