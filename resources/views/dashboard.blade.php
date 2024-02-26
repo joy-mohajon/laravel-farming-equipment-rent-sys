@@ -55,17 +55,18 @@
                                         </div>
                                     </div>
                                     <!-- /.row -->
+                                    {{-- <div class="d-flex justify-content-between mt-3">
+                                        <a class="btn w-100 border" href="{{ route('buy') }}">Buy</a>
+                                        <a class="btn w-100 border" href="{{ route('sell') }}">Sell</a>
+                                    </div> --}}
                                     @can('rent_list')
                                         <a href="{{ route('stripe', ['id' => $post->id]) }}">
-                                            <x-primary-button class="w-50 mx-auto mt-3" type="submit">
+                                            <x-primary-button class="w-100 mx-auto mt-2" type="submit">
                                                 Rent
                                             </x-primary-button>
                                         </a>
                                     @endcan
-                                    <div class="row justify-content-between mt-1">
-                                        <button class="btn">Buy</button>
-                                        <button class="btn">Sell</button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -100,8 +101,11 @@
                                     <x-primary-button class="w-50 mx-auto mt-3" type="submit">
                                         Rent
                                     </x-primary-button>
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <a class="btn w-100 border" href="">Buy</a>
+                                        <a class="btn w-100 border" href="">Sell</a>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-md-3">

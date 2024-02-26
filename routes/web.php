@@ -20,10 +20,27 @@ use App\Models\Post;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::redirect('/home', '/');
 
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+Route::get('/buy-and-sell', function () {
+    return view('buyAndSell');
+})->name('buyandsell');
+Route::get('/rent-machine', function () {
+    return view('rent');
+})->name('rent');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/buy', function () {
+    abort(404);
+})->name('buy');
+Route::get('/sell', function () {
+    abort(404);
+})->name('sell');
 
 // Authentication
 Route::controller(AuthController::class)->group(function () {
@@ -42,8 +59,6 @@ Route::post('/reset-password', [PasswordController::class, 'postResetPassword'])
 
 
 Route::middleware('auth')->group(function () {
-    Route::redirect('/', '/dashboard');
-
     Route::get('/dashboard', function () {
         $posts = Post::latest()->get();
         return view('dashboard', ['posts'=>$posts]);
@@ -63,3 +78,5 @@ Route::middleware('auth')->group(function () {
     });
     Route::resource('rents', RentController::class)->except(['show']);
 });
+
+

@@ -1,10 +1,10 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a class="brand-link" href="{{ route('dashboard') }}">
+    <a class="brand-link" href="{{ route('home') }}">
         <img class="brand-image img-circle elevation-3" src="{{ asset('plugin/adminLte/img/AdminLTELogo.png') }}"
             alt="AdminLTE Logo" style="opacity: .8">
-        <span class="brand-text font-weight-light">AgreRent</span>
+        <span class="brand-text font-weight-light">AgroRent</span>
     </a>
 
     <!-- Sidebar -->

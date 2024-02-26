@@ -1,80 +1,56 @@
-@extends ('layouts.basic')
+@extends ('layouts.master')
 
-@section('content')
-    <div class="hold-transition login-page">
-        <div class="login-box">
-            <!-- /.login-logo -->
-            <div class="card card-primary">
-                <div class="card-header text-center">
-                    <a class="h1" href="../../index2.html"><b>Login</b></a>
-                </div>
-                <div class="card-body">
-                    <p class="login-box-msg">Sign in to start your session</p>
+@section('title')
+    <title>Login</title>
+@endsection
 
-                    <x-alert class="mb-4 p-3" />
+@section('style')
+    <link href="{{ asset('template/css/loginStyle.css') }}" rel="stylesheet" />
+@endsection
 
-                    <form action="{{ route('post.login') }}" method="post">
-                        @csrf
-
-                        <div class="form-group mb-3">
-                            <div class="input-group">
-                                <x-input-text name="email" type="email" value="{{ old('email') }}"
-                                    placeholder="Email" />
-                                <x-input-icon class="fas fa-envelope" />
-                            </div>
-                            <!-- Error Message -->
-                            <x-input-error :messages="$errors->first('email')" />
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <div class="input-group">
-                                <x-input-text name="password" type="password" placeholder="Password" />
-                                <x-input-icon class="fas fa-lock" />
-                            </div>
-                            <!-- Error Message -->
-                            <x-input-error :messages="$errors->first('password')" />
-                        </div>
-
-                        <div class="row">
-                            {{-- <div class="col-8">
-                                <div class="icheck-primary">
-                                    <input type="checkbox" id="remember" />
-                                    <label for="remember"> Remember Me </label>
-                                </div>
-                            </div> --}}
-                            <!-- /.col -->
-                            <div class="col-4 mx-auto">
-                                <x-primary-button type="submit">
-                                    Sign In
-                                </x-primary-button>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                    </form>
-
-                    {{-- <div class="social-auth-links text-center mt-2 mb-3">
-                        <a href="#" class="btn btn-block btn-primary">
-                            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                        </a>
-                        <a href="#" class="btn btn-block btn-danger">
-                            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                        </a>
-                    </div> --}}
-                    <!-- /.social-auth-links -->
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <p class="mb-1 mt-2">
-                            <a href="{{ route('get.forgot.password') }}">Forgot password</a>
-                        </p>
-                        <p class="mb-0">
-                            <a class="text-center" href="{{ route('get.signup') }}">New account</a>
-                        </p>
-                    </div>
-
-                </div>
-                <!-- /.card-body -->
+@section('body')
+    <div class="container">
+        <div class="image-side"></div>
+        <div class="content-side">
+            <div class="login-heading">
+                <img src="{{ asset('template/img/logo.png') }}" title="AgroErent" alt="AgroErent">
             </div>
-            <!-- /.card -->
+
+            {{-- @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif --}}
+
+            <p id="sub-heading-1">Login</p>
+            <p id="sub-heading-2">Log to your account</p>
+            <p id="sub-heading-3">Thank you for get back to AgroErent,lets access our the best recommendation for you</p>
+            <div class="form">
+                <form action="{{ route('post.login') }}" method="post">
+                    @csrf
+
+                    <label for="email">Email</label><br>
+                    <input class="username" id="email" name="email" type="email" placeholder="Email or Phone Number"
+                        required>
+
+                    <label for="Password">Password</label><br>
+                    <input class="Password" id="Password" name="password" type="password" placeholder="Password" required>
+
+                    <div class="rememberme">
+                        <div class="rem">
+                            <input id="remember-me-check" type="checkbox">
+                            <label id="rem" for="remember-me">Remember me</label>
+                        </div>
+                        <a id="reser-password" href="{{ route('get.forgot.password') }}">Reset Password?</a>
+                    </div>
+                    <button class="submit" name="submit" type="submit">Sign In</button>
+                </form>
+            </div>
+            <p id="footer">Don't have an account yet? <a href="{{ route('get.signup') }}">Register here</a></p>
         </div>
-        <!-- /.login-box -->
     </div>
 @endsection
