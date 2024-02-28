@@ -31,7 +31,7 @@
                             <div class="card card-widget widget-user">
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
                                 <div class="widget-user-header bg-info"
-                                    style="background-image: url('{{ $post->imageUrl }}'); background-size: cover; width: 100%; height: 200px;">
+                                    style="background-image: url('{{ $post->imageUrl }}'); background-size: cover; background-position: center; width: 100%; height: 200px;">
                                 </div>
                                 <div class="card-body d-flex flex-column">
                                     <h3 class="widget-user-username font-weight-normal mb-2 text-center">{{ $post->name }}

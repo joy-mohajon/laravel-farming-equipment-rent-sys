@@ -1,6 +1,6 @@
 <!-- Main Footer -->
-<footer class="main-footer" >
-    <strong>Copyright &copy; 2014-2021 <a href="{{ route('dashboard') }}">AgreRent</a>.</strong>
+<footer class="main-footer">
+    <strong>Copyright &copy; 2023-2024 <a href="{{ route('dashboard') }}">AgroRent</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 3.2.0
