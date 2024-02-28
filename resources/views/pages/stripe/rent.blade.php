@@ -21,15 +21,46 @@
         </section>
 
         <section class="content">
-            {{-- <div class="row">
-                <div class="col-md-12">
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h3 class="card-title">Payment for rent this equipment</h3>
                         </div>
-                    @endif
+                        <div class="card-body">
+                            <form role="form" action="{{ route('stripe.rent.post', ['id' => $id]) }}" method="post">
+                                @csrf
+
+                                <div class='form-row row'>
+                                    <div class='col-md-12 form-group required'>
+                                        <label class='control-label'>Your Name</label> <input class='form-control'
+                                            type='text' value="{{ auth()->user()->name }}" size='4'>
+                                    </div>
+                                    {{-- <div class='col-md-6 form-group required'>
+                                        <label class='control-label'>Card Number</label> <input
+                                            class='form-control card-number' type='text' autocomplete='off'
+                                            size='20'>
+                                    </div> --}}
+                                </div>
+
+                                <div class='form-row row'>
+                                    <div class='col-md-12 form-group required'>
+                                        <label class='control-label'>Shipping Address</label>
+                                        <textarea class='form-control' name="address" type='textarea' aria-rowspan="2" required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-primary btn-md btn-block" type="submit">Cash on delivery
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div> --}}
+            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card shadow">
@@ -87,7 +118,7 @@
 
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now
+                                        <button class="btn btn-primary btn-md btn-block" type="submit">Cash on online
                                         </button>
                                     </div>
                                 </div>

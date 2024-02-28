@@ -27,3 +27,7 @@
 @hasSection('style')
     @yield('style')
 @endif
+
+@hasSection('script')
+    @yield('script')
+@endif

@@ -90,7 +90,7 @@
                                                 <div class="custom-file">
                                                     <input class="custom-file-input @error('imageUrl') is-invalid @enderror"
                                                         id="InputFile" name="imageUrl" type="file"
-                                                        accept=".jpg, .jpeg, .png, .gif, .webp,"
+                                                        accept=".jpg, .jpeg, .png, .gif, .webp, .jfif"
                                                         @if (old('imageUrl')) value="{{ old('imageUrl') }}"
                                                         @else value="" @endif
                                                         placeholder="Upload image" required>

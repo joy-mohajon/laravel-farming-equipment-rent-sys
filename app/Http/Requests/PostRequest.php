@@ -25,7 +25,7 @@ class PostRequest extends FormRequest
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0.01',
             'quantity' => 'required|integer|min:1',
-            'imageUrl' => 'required|mimes:jpg,jpeg,png,gif|max:10000',
+            'imageUrl' => 'required|mimes:jpg,jpeg,png,gif,gif,webp,jfif|max:10000',
         ];
     }
 }
