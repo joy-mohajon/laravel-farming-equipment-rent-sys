@@ -42,7 +42,7 @@ class StripePaymentController extends Controller
 
         if ($request->stripeToken) {
             $transection = Stripe\Charge::create([
-                "amount" => intval($post->price),
+                "amount" => intval($post->rent),
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from itsolutionstuff.com."
@@ -53,6 +53,7 @@ class StripePaymentController extends Controller
             Rent::create([
                 'name' => auth()->user()->name,
                 'address' => $request->address,
+                'amount' => $post->rent,
                 'transaction_id' => $transection->balance_transaction,
                 'status' => 'In-progress',
                 'post_id' => $id,
@@ -68,6 +69,7 @@ class StripePaymentController extends Controller
             Rent::create([
                 'name' => auth()->user()->name,
                 'address' => $request->address,
+                'amount' => $post->rent,
                 'transaction_id' => $randomKey,
                 'status' => 'In-progress',
                 'post_id' => $id,
@@ -102,6 +104,7 @@ class StripePaymentController extends Controller
                 'address' => $request->address,
                 'equipment_name' => $post->name,
                 'equipment_quantity' => 1,
+                'amount' => $post->price,
                 'transaction_id' => $transection->balance_transaction,
                 'status' => 'In-progress',
                 'post_id' => $id,
@@ -119,6 +122,7 @@ class StripePaymentController extends Controller
                 'address' => $request->address,
                 'equipment_name' => $post->name,
                 'equipment_quantity' => 1,
+                'amount' => $post->price,
                 'transaction_id' => $randomKey,
                 'status' => 'In-progress',
                 'post_id' => $id,

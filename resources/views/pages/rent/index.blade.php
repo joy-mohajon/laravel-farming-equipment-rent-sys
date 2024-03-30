@@ -53,6 +53,7 @@
                                         <th>SL.</th>
                                         <th>Name</th>
                                         <th>Address</th>
+                                        <th>Amount</th>
                                         <th>Transaction Id</th>
                                         <th>Status</th>
                                         @can('post_list')
@@ -66,6 +67,7 @@
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $rent->name }}</td>
                                             <td>{{ $rent->address }}</td>
+                                            <td>{{ $rent->amount }}</td>
                                             <td>{{ $rent->transaction_id }}</td>
                                             <td><span
                                                     class="badge @if ($rent->status == 'Approved') badge-success @else badge-secondary @endif">{{ $rent->status }}</span>
@@ -79,7 +81,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td class="text-center" colspan="5">No data 😢</td>
+                                            <td class="text-center" colspan="9">No data 😢</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

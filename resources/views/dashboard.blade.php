@@ -30,8 +30,13 @@
                         <div class="col-md-4">
                             <div class="card card-widget widget-user">
                                 <!-- Add the bg color to the header using any of the bg-* classes -->
-                                <div class="widget-user-header bg-info"
+                                <div class="widget-user-header bg-info text-left"
                                     style="background-image: url('{{ $post->imageUrl }}'); background-size: cover; background-position: center; width: 100%; height: 200px;">
+                                    <span
+                                        style="display: inline-block; font-size: 14px;
+                                    font-weight: bold; color: white; background: #007bff; border-radius: 10px;"
+                                        class="text-left px-3 py-2"><span
+                                            class="font-weight-bolder">৳</span>{{ $post->price }}/-</span>
                                 </div>
                                 <div class="card-body d-flex flex-column">
                                     <h3 class="widget-user-username font-weight-normal mb-2 text-center">{{ $post->name }}
@@ -48,8 +53,8 @@
                                         <div class="col-sm-6">
                                             <div class="description-block">
                                                 <h5 class="description-header"><span
-                                                        class="font-weight-bolder">৳</span>{{ $post->price }}/hr</h5>
-                                                <span class="description-text">Price</span>
+                                                        class="font-weight-bolder">৳</span>{{ $post->rent }}/hr</h5>
+                                                <span class="description-text">Rent</span>
                                             </div>
                                             <!-- /.description-block -->
                                         </div>

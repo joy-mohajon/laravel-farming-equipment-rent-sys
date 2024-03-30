@@ -14,6 +14,7 @@ class Buy extends Model
         'address',
         'equipment_name',
         'equipment_quantity',
+        'amount',
         'transaction_id',
         'status',
         'post_id',

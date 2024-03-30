@@ -41,7 +41,7 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
                                         <div class="form-group text-left">
                                             <label class="required @error('name') text-danger @enderror" for="name">
                                                 Name</label>
@@ -72,13 +72,27 @@
                                     <div class="col-lg-6">
                                         <div class="form-group text-left">
                                             <label class="required @error('price') text-danger @enderror"
-                                                for="price">Price</label>
+                                                for="price">Price for Buy</label>
                                             <input class="form-control @error('price') is-invalid @enderror" id="price"
                                                 name="price" type="number" step="0.01"
                                                 @if (old('price')) value="{{ old('price') }}"
                                                 @else value="" @endif
                                                 placeholder="Enter price" required />
                                             @error('price')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group text-left">
+                                            <label class="required @error('rent') text-danger @enderror"
+                                                for="rent">Price for Rent</label>
+                                            <input class="form-control @error('rent') is-invalid @enderror" id="rent"
+                                                name="rent" type="number" step="0.01"
+                                                @if (old('rent')) value="{{ old('rent') }}"
+                                                @else value="" @endif
+                                                placeholder="Enter rent" required />
+                                            @error('rent')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>

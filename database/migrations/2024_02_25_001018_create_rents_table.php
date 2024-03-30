@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('address');
+            $table->string('amount');
             $table->string('transaction_id');
             $table->string('status')->default('In-progress');
             $table->unsignedBigInteger('post_id');

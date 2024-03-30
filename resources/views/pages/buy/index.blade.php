@@ -55,6 +55,7 @@
                                         <th>Address</th>
                                         <th>Equipment name</th>
                                         <th>Quantity</th>
+                                        <th>Amount</th>
                                         <th>Transaction Id</th>
                                         <th>Status</th>
                                         @can('post_list')
@@ -70,6 +71,7 @@
                                             <td>{{ $buy->address }}</td>
                                             <td>{{ $buy->equipment_name }}</td>
                                             <td>{{ $buy->equipment_quantity }}</td>
+                                            <td>{{ $buy->amount }}</td>
                                             <td>{{ $buy->transaction_id }}</td>
                                             <td><span
                                                     class="badge @if ($buy->status == 'In-progress') badge-secondary @else badge-success @endif">{{ $buy->status }}</span>
@@ -83,7 +85,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td class="text-center" colspan="5">No data 😢</td>
+                                            <td class="text-center" colspan="9">No data 😢</td>
                                         </tr>
                                     @endforelse
                                 </tbody>

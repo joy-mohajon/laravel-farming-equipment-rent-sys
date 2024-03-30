@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('price', 8, 2);
+            $table->decimal('rent', 8, 2);
             $table->integer('quantity');
             $table->string('imageUrl')->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');

@@ -51,6 +51,7 @@ class PostController extends Controller
                 'name' => $request->name,
                 'quantity' => $request->quantity,
                 'price' => $request->price,
+                'rent' => $request->rent,
                 'imageUrl' => $imagePath,
                 'user_id' => auth()->id(),
             ]);

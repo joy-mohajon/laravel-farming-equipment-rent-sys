@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('equipment_name');
             $table->integer('equipment_quantity');
+            $table->string('amount');
             $table->string('transaction_id');
             $table->string('status')->default('In-progress');
             $table->unsignedBigInteger('post_id');

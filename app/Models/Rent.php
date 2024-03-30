@@ -12,6 +12,7 @@ class Rent extends Model
     protected $fillable = [
         'name',
         'address',
+        'amount',
         'transaction_id',
         'status',
         'post_id',
