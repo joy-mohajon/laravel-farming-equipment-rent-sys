@@ -63,35 +63,65 @@
                                         @endcan
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @forelse ($buys as $key => $buy)
-                                        <tr class="text-center">
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $buy->name }}</td>
-                                            <td>{{ $buy->address }}</td>
-                                            <td>{{ $buy->equipment_name }}</td>
-                                            <td>{{ $buy->equipment_quantity }}</td>
-                                            <td>{{ $buy->amount }}</td>
-                                            <td>{{ $buy->transaction_id }}</td>
-                                            <td><span
-                                                    class="badge @if ($buy->status == 'In-progress') badge-secondary @else badge-success @endif">{{ $buy->status }}</span>
-                                            </td>
-                                            @can('post_list')
-                                                <td>
-                                                    <a class="btn btn-warning"
-                                                        href="{{ route('buys.edit', $buy->id) }}">Confirmed</a>
+                                @if (auth()->check() && auth()->user()->hasRole('borrower'))
+                                    <tbody>
+                                        @forelse ($buys as $key => $buy)
+                                            <tr class="text-center">
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $buy->name }}</td>
+                                                <td>{{ $buy->address }}</td>
+                                                <td>{{ $buy->equipment_name }}</td>
+                                                <td>{{ $buy->equipment_quantity }}</td>
+                                                <td>{{ $buy->amount }}</td>
+                                                <td>{{ $buy->transaction_id }}</td>
+                                                <td><span
+                                                        class="badge @if ($buy->status == 'In-progress') badge-secondary @else badge-success @endif">{{ $buy->status }}</span>
                                                 </td>
-                                            @endcan
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td class="text-center" colspan="9">No data 😢</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
+                                                @can('post_list')
+                                                    <td>
+                                                        <a class="btn btn-warning"
+                                                            href="{{ route('buys.edit', $buy->id) }}">Confirmed</a>
+                                                    </td>
+                                                @endcan
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="text-center" colspan="9">No data 😢</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                @else
+                                    <tbody>
+                                        @forelse ($buys as $key => $buy)
+                                            <tr class="text-center">
+                                                <td>{{ ++$key }}</td>
+                                                <td>{{ $buy['name'] }}</td>
+                                                <td>{{ $buy['address'] }}</td>
+                                                <td>{{ $buy['equipment_name'] }}</td>
+                                                <td>{{ $buy['equipment_quantity'] }}</td>
+                                                <td>{{ $buy['amount'] }}</td>
+                                                <td>{{ $buy['transaction_id'] }}</td>
+                                                <td><span
+                                                        class="badge @if ($buy['status'] == 'In-progress') badge-secondary @else badge-success @endif">{{ $buy['status'] }}</span>
+                                                </td>
+                                                @can('post_list')
+                                                    <td>
+                                                        <a class="btn btn-warning"
+                                                            href="{{ route('buys.edit', $buy['id']) }}">Confirmed</a>
+                                                    </td>
+                                                @endcan
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="text-center" colspan="9">No data 😢</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                @endif
+
                             </table>
                         </div>
-                        @if (count($buys) > 0)
+                        {{-- @if (count($buys) > 0)
                             <div class="card-footer">
                                 <div class="float-left">
                                     <span>Showing </span> <b>{{ $buys->firstItem() }}</b>
@@ -102,7 +132,7 @@
                                     {{ @$buys->links('pagination::bootstrap-4') }}
                                 </div>
                             </div>
-                        @endif
+                        @endif --}}
                         <!-- Card Body End -->
                     </div>
                     <!-- Card End -->

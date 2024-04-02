@@ -61,33 +61,60 @@
                                         @endcan
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @forelse ($rents as $key => $rent)
-                                        <tr class="text-center">
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $rent->name }}</td>
-                                            <td>{{ $rent->address }}</td>
-                                            <td>{{ $rent->amount }}</td>
-                                            <td>{{ $rent->transaction_id }}</td>
-                                            <td><span
-                                                    class="badge @if ($rent->status == 'Approved') badge-success @else badge-secondary @endif">{{ $rent->status }}</span>
-                                            </td>
-                                            @can('post_list')
-                                                <td>
-                                                    <a class="btn btn-warning"
-                                                        href="{{ route('rents.edit', $rent->id) }}">Confirmed</a>
+                                @if (auth()->check() && auth()->user()->hasRole('borrower'))
+                                    <tbody>
+                                        @forelse ($rents as $key => $rent)
+                                            <tr class="text-center">
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $rent->name }}</td>
+                                                <td>{{ $rent->address }}</td>
+                                                <td>{{ $rent->amount }}</td>
+                                                <td>{{ $rent->transaction_id }}</td>
+                                                <td><span
+                                                        class="badge @if ($rent->status == 'Approved') badge-success @else badge-secondary @endif">{{ $rent->status }}</span>
                                                 </td>
-                                            @endcan
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td class="text-center" colspan="9">No data 😢</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
+                                                @can('post_list')
+                                                    <td>
+                                                        <a class="btn btn-warning"
+                                                            href="{{ route('rents.edit', $rent->id) }}">Confirmed</a>
+                                                    </td>
+                                                @endcan
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="text-center" colspan="9">No data 😢</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                @else
+                                    <tbody>
+                                        @forelse ($rents as $key => $rent)
+                                            <tr class="text-center">
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $rent['name'] }}</td>
+                                                <td>{{ $rent['address'] }}</td>
+                                                <td>{{ $rent['amount'] }}</td>
+                                                <td>{{ $rent['transaction_id'] }}</td>
+                                                <td><span
+                                                        class="badge @if ($rent['status'] == 'Approved') badge-success @else badge-secondary @endif">{{ $rent['status'] }}</span>
+                                                </td>
+                                                @can('post_list')
+                                                    <td>
+                                                        <a class="btn btn-warning"
+                                                            href="{{ route('rents.edit', $rent['id']) }}">Confirmed</a>
+                                                    </td>
+                                                @endcan
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="text-center" colspan="9">No data 😢</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                @endif
                             </table>
                         </div>
-                        @if (count($rents) > 0)
+                        {{-- @if (count($rents) > 0)
                             <div class="card-footer">
                                 <div class="float-left">
                                     <span>Showing </span> <b>{{ $rents->firstItem() }}</b>
@@ -98,7 +125,7 @@
                                     {{ @$rents->links('pagination::bootstrap-4') }}
                                 </div>
                             </div>
-                        @endif
+                        @endif --}}
                         <!-- Card Body End -->
                     </div>
                     <!-- Card End -->
