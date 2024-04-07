@@ -60,27 +60,27 @@
                                         </div>
                                     </div>
                                     <!-- /.row -->
-
-                                    @can('rent_list')
-                                        @if ($post->quantity > 0)
-                                            <div class="d-flex justify-content-between mt-3">
-                                                <a class="btn w-100 border-primary border"
-                                                    href="{{ route('stripe.buy', ['data' => json_encode($post)]) }}"
-                                                    disabled>Buy</a>
-                                            </div>
-                                            <a href="{{ route('stripe.rent', ['id' => $post->id]) }}">
-                                                <x-primary-button class="w-100 mx-auto mt-2" type="submit">
-                                                    Rent
-                                                </x-primary-button>
-                                            </a>
-                                        @else
-                                            <div class="d-flex justify-content-between mt-3">
-                                                <div class="border-danger w-100 text-danger border p-2 text-center">Unavailable
-                                                    at that moment.</div>
-                                            </div>
-                                        @endif
-                                    @endcan
-
+                                    @if (!Auth::user()->hasRole('admin'))
+                                        @can('rent_list')
+                                            @if ($post->quantity > 0)
+                                                <div class="d-flex justify-content-between mt-3">
+                                                    <a class="btn w-100 border-primary border"
+                                                        href="{{ route('stripe.buy', ['data' => json_encode($post)]) }}">Buy</a>
+                                                </div>
+                                                <a href="{{ route('stripe.rent', ['id' => $post->id]) }}">
+                                                    <x-primary-button class="w-100 mx-auto mt-2" type="submit">
+                                                        Rent
+                                                    </x-primary-button>
+                                                </a>
+                                            @else
+                                                <div class="d-flex justify-content-between mt-3">
+                                                    <div class="border-danger w-100 text-danger border p-2 text-center">
+                                                        Unavailable
+                                                        at that moment.</div>
+                                                </div>
+                                            @endif
+                                        @endcan
+                                    @endif
                                 </div>
                             </div>
                         </div>

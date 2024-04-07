@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Rent;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 
 class RentController extends Controller
@@ -80,6 +81,15 @@ class RentController extends Controller
      */
     public function edit(Rent $rent)
     {
+        $rent = Rent::where('id', $rent->id)->first();
+
+        if($rent->status != 'Approved'){
+            $post = Post::where('id', $rent->post_id)->first();
+            $post->update([
+                'quantity' => $post->quantity - 1,
+            ]);
+        }
+
         $rent->update([
             'status' => 'Approved',
         ]);

@@ -49,7 +49,7 @@
                                                 name="name" type="text"
                                                 @if (old('name')) value="{{ old('name') }}"
                                                 @else value="" @endif
-                                                placeholder="Enter Name" required />
+                                                placeholder="Enter Name" />
                                             @error('name')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group text-left">
-                                            <label class="required" for="quantity">
+                                            <label class="required @error('quantity') text-danger @enderror" for="quantity">
                                                 Quantity</label>
                                             <input class="form-control @error('quantity') is-invalid @enderror"
                                                 id="quantity" name="quantity" type="number"
@@ -77,7 +77,7 @@
                                                 name="price" type="number" step="0.01"
                                                 @if (old('price')) value="{{ old('price') }}"
                                                 @else value="" @endif
-                                                placeholder="Enter price" required />
+                                                placeholder="Enter price" />
                                             @error('price')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
@@ -91,7 +91,7 @@
                                                 name="rent" type="number" step="0.01"
                                                 @if (old('rent')) value="{{ old('rent') }}"
                                                 @else value="" @endif
-                                                placeholder="Enter rent" required />
+                                                placeholder="Enter rent" />
                                             @error('rent')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
@@ -99,7 +99,8 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label class="required" for="InputFile">Image</label>
+                                            <label class="required @error('imageUrl') text-danger @enderror"
+                                                for="InputFile">Image</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <input class="custom-file-input @error('imageUrl') is-invalid @enderror"
@@ -107,7 +108,7 @@
                                                         accept=".jpg, .jpeg, .png, .gif, .webp, .jfif"
                                                         @if (old('imageUrl')) value="{{ old('imageUrl') }}"
                                                         @else value="" @endif
-                                                        placeholder="Upload image" required>
+                                                        placeholder="Upload image">
                                                     <label class="custom-file-label" for="InputFile">Choose file</label>
                                                 </div>
                                             </div>

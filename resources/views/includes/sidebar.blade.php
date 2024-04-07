@@ -38,49 +38,50 @@
                         </p>
                     </a>
                 </li>
-
-                <li class="nav-item has-treeview">
-                    @can('post_list')
+                @if (!Auth::user()->hasRole('admin'))
+                    <li class="nav-item has-treeview">
+                        @can('post_list')
+                            <a class="nav-link" href="#">
+                                {{-- <i class="nav-icon fas fa-files"></i> --}}
+                                <i class="nav-icon fab fa-blogger"></i>
+                                <p>Post
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('posts.index') }}">
+                                        <i class="nav-icon fas fa-angle-double-right"></i>
+                                        <p>My posts</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        @endcan
+                    </li>
+                    <li class="nav-item has-treeview">
                         <a class="nav-link" href="#">
-                            {{-- <i class="nav-icon fas fa-files"></i> --}}
-                            <i class="nav-icon fab fa-blogger"></i>
-                            <p>Post
+                            <i class="nav-icon fa-regular fa-file-lines"></i>
+                            <p>
+                                Confirmations
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('posts.index') }}">
+                                <a class="nav-link" href="{{ route('buys.index') }}">
                                     <i class="nav-icon fas fa-angle-double-right"></i>
-                                    <p>My posts</p>
+                                    <p>Buys</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rents.index') }}">
+                                    <i class="nav-icon fas fa-angle-double-right"></i>
+                                    <p>Rents</p>
                                 </a>
                             </li>
                         </ul>
-                    @endcan
-                </li>
-                <li class="nav-item has-treeview">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon fa-regular fa-file-lines"></i>
-                        <p>
-                            Confirmations
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('buys.index') }}">
-                                <i class="nav-icon fas fa-angle-double-right"></i>
-                                <p>Buys</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('rents.index') }}">
-                                <i class="nav-icon fas fa-angle-double-right"></i>
-                                <p>Rents</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                @endif
                 <li class="nav-item has-treeview">
                     @if (Auth::user()->hasRole('admin'))
                         <a class="nav-link" href="{{ route('users.index') }}">
