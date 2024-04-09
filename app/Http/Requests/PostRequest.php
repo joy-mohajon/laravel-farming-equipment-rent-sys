@@ -23,9 +23,9 @@ class PostRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0.01',
-            'rent' => 'required|numeric|min:0.01',
-            'quantity' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:0.01|max:999999999999999999',
+            'rent' => 'required|numeric|min:0.01|max:999999999999999999',
+            'quantity' => 'required|numeric|min:1|max:100000000',
             'imageUrl' => 'required|mimes:jpg,jpeg,png,gif,gif,webp,jfif|max:10000',
         ];
     }

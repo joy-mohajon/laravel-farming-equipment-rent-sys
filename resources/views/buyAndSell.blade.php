@@ -75,8 +75,8 @@
 
     <section class="Add-Post">
         <!-- <button class="post_btn">
-                    Add Post
-                </button> -->
+                            Add Post
+                        </button> -->
 
     </section>
 
@@ -101,7 +101,7 @@
             </div>
             <div class="rent">
                 <a href="{{ route('dashboard') }}">Buy</a>
-                <a href="{{ route('dashboard') }}">Sell</a>
+                {{-- <a href="{{ route('dashboard') }}">Sell</a> --}}
             </div>
         </div>
 
@@ -123,7 +123,7 @@
             </div>
             <div class="rent">
                 <a href="{{ route('dashboard') }}">Buy</a>
-                <a href="{{ route('dashboard') }}">Sell</a>
+                {{-- <a href="{{ route('dashboard') }}">Sell</a> --}}
             </div>
         </div>
 
@@ -145,7 +145,7 @@
             </div>
             <div class="rent">
                 <a href="{{ route('dashboard') }}">Buy</a>
-                <a href="{{ route('dashboard') }}">Sell</a>
+                {{-- <a href="{{ route('dashboard') }}">Sell</a> --}}
             </div>
         </div>
 
@@ -167,7 +167,7 @@
             </div>
             <div class="rent">
                 <a href="{{ route('dashboard') }}">Buy</a>
-                <a href="{{ route('dashboard') }}">Sell</a>
+                {{-- <a href="{{ route('dashboard') }}">Sell</a> --}}
             </div>
         </div>
 
@@ -189,7 +189,7 @@
             </div>
             <div class="rent">
                 <a href="{{ route('dashboard') }}">Buy</a>
-                <a href="{{ route('dashboard') }}">Sell</a>
+                {{-- <a href="{{ route('dashboard') }}">Sell</a> --}}
             </div>
         </div>
 
@@ -211,7 +211,7 @@
             </div>
             <div class="rent">
                 <a href="{{ route('dashboard') }}">Buy</a>
-                <a href="{{ route('dashboard') }}">Sell</a>
+                {{-- <a href="{{ route('dashboard') }}">Sell</a> --}}
             </div>
         </div>
 
@@ -233,7 +233,7 @@
             </div>
             <div class="rent">
                 <a href="{{ route('dashboard') }}">Buy</a>
-                <a href="{{ route('dashboard') }}">Sell</a>
+                {{-- <a href="{{ route('dashboard') }}">Sell</a> --}}
             </div>
         </div>
 
@@ -255,7 +255,7 @@
             </div>
             <div class="rent">
                 <a href="{{ route('dashboard') }}">Buy</a>
-                <a href="{{ route('dashboard') }}">Sell</a>
+                {{-- <a href="{{ route('dashboard') }}">Sell</a> --}}
             </div>
         </div>
 

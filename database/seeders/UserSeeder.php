@@ -20,18 +20,18 @@ class UserSeeder extends Seeder
         ]);
         $adminUser->assignRole('admin');
 
-        // $adminUser = User::create([
-        //     'name' => 'Owner',
-        //     'email' => 'Owner@gmail.com',
-        //     'password' => bcrypt('1234'),
-        // ]);
-        // $adminUser->assignRole('lender');
+        $adminUser = User::create([
+            'name' => 'Owner',
+            'email' => 'owner@gmail.com',
+            'password' => bcrypt('1234'),
+        ]);
+        $adminUser->assignRole('lender');
 
-        // $adminUser = User::create([
-        //     'name' => 'Farmer',
-        //     'email' => 'Farmer@gmail.com',
-        //     'password' => bcrypt('1234'),
-        // ]);
-        // $adminUser->assignRole('borrower');
+        $adminUser = User::create([
+            'name' => 'Farmer',
+            'email' => 'farmer@gmail.com',
+            'password' => bcrypt('1234'),
+        ]);
+        $adminUser->assignRole('borrower');
     }
 }

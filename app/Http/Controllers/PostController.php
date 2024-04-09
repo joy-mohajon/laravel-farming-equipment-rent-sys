@@ -45,7 +45,7 @@ class PostController extends Controller
             if ($request->imageUrl) {
                 Storage::disk('public')->delete($fileName);
             }
-
+// return $request->price;
             $imagePath = Storage::url($filePath);
             Post::create([
                 'name' => $request->name,

@@ -59,6 +59,7 @@ class StripePaymentController extends Controller
                 'post_id' => $id,
                 'user_id' => auth()->user()->id,
             ]);
+            Session::flash('success', 'Payment successful!');
         } else {
             // Generate random bytes
             $randomBytes = random_bytes($length);
@@ -75,9 +76,9 @@ class StripePaymentController extends Controller
                 'post_id' => $id,
                 'user_id' => auth()->user()->id,
             ]);
+            Session::flash('success', 'Address sent successfully!');
         }
 
-        Session::flash('success', 'Payment successful!');
 
         return redirect()->route('rents.index');
     }
@@ -110,6 +111,7 @@ class StripePaymentController extends Controller
                 'post_id' => $id,
                 'user_id' => auth()->user()->id,
             ]);
+            Session::flash('success', 'Payment successful!');
         } else {
             // Generate random bytes
             $randomBytes = random_bytes($length);
@@ -128,9 +130,8 @@ class StripePaymentController extends Controller
                 'post_id' => $id,
                 'user_id' => auth()->user()->id,
             ]);
+            Session::flash('success', 'Address sent successfully!');
         }
-
-        Session::flash('success', 'Payment successful!');
 
         return redirect()->route('buys.index');
     }

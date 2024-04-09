@@ -13,7 +13,7 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('permissions')->insert(
+        DB::table('permissions')->insertOrIgnore(
             [
                 // permissions for user operation
                 ['name' => 'user_list',         'guard_name' => 'web'],
@@ -35,7 +35,7 @@ class PermissionSeeder extends Seeder
                 ['name' => 'post_delete',       'guard_name' => 'web'],
 
                  // permissions for reserve operation
-                 ['name' => 'rent_list',         'guard_name' => 'web'],
+                ['name' => 'rent_list',         'guard_name' => 'web'],
                 //  ['name' => 'post_create',       'guard_name' => 'web'],
                 //  ['name' => 'post_update',       'guard_name' => 'web'],
                 //  ['name' => 'post_delete',       'guard_name' => 'web'],
