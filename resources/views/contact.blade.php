@@ -22,7 +22,7 @@
                 <ul id="nav-links">
                     <li><a href="{{ route('home') }}"><i class="fa fa-fw fa-home"></i>Home</a></li>
                     <li><a href="{{ route('rent') }}"><i class="fa fa-bus" aria-hidden="true"></i>Rent machinery</a></li>
-                    <li><a href="{{ route('buyandsell') }}"><i class="fa fa-bus" aria-hidden="true"></i>Buy and Sell</a>
+                    <li><a href="{{ route('buyandsell') }}"><i class="fa fa-bus" aria-hidden="true"></i>Buy machinery</a>
                     </li>
                     <li><a href="{{ route('contact') }}"><i class="fa fa-fw fa-envelope"></i>Contact Us</a></li>
                 </ul>

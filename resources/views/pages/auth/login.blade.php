@@ -28,7 +28,7 @@
 
             <p id="sub-heading-1">Login</p>
             <p id="sub-heading-2">Log to your account</p>
-            <p id="sub-heading-3">Thank you for get back to AgroErent,lets access our the best recommendation for you</p>
+            <p id="sub-heading-3">Thank you for get back to AgroRent,lets access our the best recommendation for you</p>
             <div class="form">
                 <form action="{{ route('post.login') }}" method="post">
                     @csrf
